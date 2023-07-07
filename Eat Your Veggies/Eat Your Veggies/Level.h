@@ -15,9 +15,10 @@ public:
 private:
 
 	int floorPosX = 0;
-	int floorPOsY = 650;
+	int floorPOsY = 575;
 
-	int floorPosX1 = 1200;
-	int floorPOsY1 = 650;
+	int floorPosX1 = 1280;
+	int floorPOsY1 = 575;
 
+	int floorSize = 1280;
 };

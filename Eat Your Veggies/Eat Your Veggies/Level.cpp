@@ -8,28 +8,28 @@ void Level::init()
 	}
 	floorSprite.setTexture(floorTexture);
 	floorSprite.setPosition(floorPosX, floorPOsY);
-	floorSprite.setScale(1, 1);
+	floorSprite.setScale(8, 8);
 
 	floorSprite1.setTexture(floorTexture);
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
-	floorSprite1.setScale(1, 1);
+	floorSprite1.setScale(8, 8);
 }
 
 void Level::update()
 {
 	floorPosX--;
 	floorSprite.setPosition(floorPosX, floorPOsY);
-	if (floorPosX <= -1200)
+	if (floorPosX <= -floorSize)
 	{
-		floorPosX = 1200;
+		floorPosX = floorSize;
 	}
 	std::cout << "1st platform pos" << floorPosX << std::endl;
 	std::cout << "2nd platform pos" << floorPosX1 << std::endl;
 	floorPosX1--;
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
-	if (floorPosX1 <= -1200)
+	if (floorPosX1 <= -floorSize)
 	{
-		floorPosX1 = 1200;
+		floorPosX1 = floorSize;
 	}
 }
 

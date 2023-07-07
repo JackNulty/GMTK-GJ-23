@@ -10,10 +10,10 @@ void Veggie::movement()
 	player.setPosition(playerPos.x, playerPos.y);
 	playerVelocity.y += gravity;
 	playerPos.y += playerVelocity.y;
-
-	if (playerPos.y >= SCREEN_HEIGHT)
+	playerPos.x--;
+	if (playerPos.y >= SCREEN_HEIGHT - 128)
 	{
-		playerPos.y = SCREEN_HEIGHT;
+		playerPos.y = SCREEN_HEIGHT - 128;
 		readyToJump = true;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
