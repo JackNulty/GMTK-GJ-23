@@ -39,9 +39,9 @@ void Game::init()
 void Game::render()
 {
 	m_window.clear(sf::Color{ 255,255,255,255 });
-    myVeg.render(m_window);
 	myLevel.render(m_window);
 	myHud.render(m_window);
+	myVeg.render(m_window);
 	m_window.display();
 }
 

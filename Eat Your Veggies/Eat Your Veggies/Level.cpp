@@ -14,13 +14,13 @@ void Level::init()
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
 	floorSprite1.setScale(8, 8);
 
-	if (!SaltTexture.loadFromFile("ASSETS/SPRITES/char.png"))
+	if (!SaltTexture.loadFromFile("ASSETS/SPRITES/salt.png"))
 	{
 		std::cout << "error" << std::endl;
 	}
 	SaltSprite.setTexture(SaltTexture);
-	SaltSprite.setPosition(100,450);
-	SaltSprite.setScale(2, 2);
+	SaltSprite.setPosition(100,320);
+	SaltSprite.setScale(4, 4);
 }
 
 void Level::update()
