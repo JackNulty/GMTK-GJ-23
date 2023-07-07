@@ -9,7 +9,7 @@ public:
 	void run();
 	void init();
 	void render();
-	void update(double dt);
+	void update();
 
 	// main window
 	sf::RenderWindow m_window;

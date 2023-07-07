@@ -8,28 +8,41 @@ Game::Game() :
 
 void Game::run()
 {
-    sf::Clock clock;
-    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	sf::Font m_font;
+	if (!m_font.loadFromFile("ASSETS/FONTS/BebasNeue.otf"))
+	{
+		std::cout << "error with font file file";
+	}
 
-    sf::Time timePerFrame = sf::seconds(1.0f / 60); // 60 fps
-    while (m_window.isOpen())
-    {
-        sf::Event event;
-        while (m_window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                m_window.close();
-        }
+	sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
 
-        timeSinceLastUpdate += clock.restart();
-        update(timePerFrame.asMilliseconds());
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-        if (timeSinceLastUpdate > timePerFrame)
-        {
-            timeSinceLastUpdate = sf::Time::Zero;
-        }
-        render();
-    }
+	sf::Clock clockForFrameRate;
+
+	clockForFrameRate.restart();
+
+	while (m_window.isOpen())
+	{
+
+		sf::Event event;
+		while (m_window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				m_window.close();
+		}
+
+
+		timeSinceLastUpdate += clockForFrameRate.restart();
+
+
+		if (timeSinceLastUpdate > timePerFrame)
+		{
+
+			update();
+			timeSinceLastUpdate = sf::Time::Zero;
+		}
+	}
 }
 
 void Game::init()
@@ -42,7 +55,8 @@ void Game::render()
     myVeg.render(m_window);
 }
 
-void Game::update(double dt)
+void Game::update()
 {
     myVeg.update();
+    render();
 }
