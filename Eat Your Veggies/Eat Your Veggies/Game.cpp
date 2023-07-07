@@ -32,15 +32,18 @@ void Game::run()
 void Game::init()
 {
     myVeg.init();
+	myLevel.init();
 }
 
 void Game::render()
 {
     myVeg.render(m_window);
+	myLevel.render(m_window);
 }
 
 void Game::update()
 {
     myVeg.update();
+	myLevel.update();
     render();
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Veggie.h"
+#include "Level.h"
 #include "Globals.h"
 
 class Game {
@@ -15,6 +16,7 @@ public:
 	sf::RenderWindow m_window;
 
 	Veggie myVeg;
+	Level myLevel;
 	
 private:
 	
