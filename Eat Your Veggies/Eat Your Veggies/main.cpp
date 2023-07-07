@@ -14,30 +14,13 @@
 #pragma comment(lib,"sfml-network.lib")  
 #endif 
 
+#include "Game.h"
 #include <SFML/Graphics.hpp> 
 #include <stdlib.h>  
 #include <iostream>
 
-int main()
+int main(int, char* argv[])
 {
-	const int SCREEN_WIDTH = 1400;
-	const int SCREEN_HEIGHT = 800;
-	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Eat your Beggies");
-
-	// Update
-	while (window.isOpen())
-	{
-		// Event loop
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		// Draw
-		window.clear();
-		window.display();
-	}
-
+	Game game;
+	game.run();
 }
