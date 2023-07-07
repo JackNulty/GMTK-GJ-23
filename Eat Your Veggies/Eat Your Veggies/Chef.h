@@ -19,12 +19,13 @@ private:
 
 	int turnTimer = 0;
 	int turnThreshold = 0;
-	 
+
 
 public:
 
 	void init();
 	void render(sf::RenderWindow& window);
 	void update();
+	bool facingPlayer = false;
 };
 
