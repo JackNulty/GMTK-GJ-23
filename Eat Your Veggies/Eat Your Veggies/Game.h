@@ -18,6 +18,9 @@ public:
 	// main window
 	sf::RenderWindow m_window;
 
+	sf::Sprite background;
+	sf::Texture backgroundTexture;
+
 	Veggie myVeg;
 	Level myLevel;
 	HUD myHud;

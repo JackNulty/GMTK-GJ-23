@@ -31,6 +31,12 @@ void Game::run()
 
 void Game::init()
 {
+	if (!backgroundTexture.loadFromFile("ASSETS/SPRITES/kitchen.jpg"))
+	{
+		std::cout << "error" << std::endl;
+	}
+	background.setTexture(backgroundTexture);
+	background.setScale(0.8, 0.6);
     myVeg.init();
 	myLevel.init();
 	myHud.init();
@@ -40,6 +46,7 @@ void Game::init()
 void Game::render()
 {
 	m_window.clear(sf::Color{ 255,255,255,255 });
+	m_window.draw(background);
 	myChef.render(m_window);
 	myLevel.render(m_window);
 	myHud.render(m_window);
