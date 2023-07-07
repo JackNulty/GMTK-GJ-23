@@ -1,12 +1,8 @@
 #pragma once
-#include <SFML/Graphics.hpp> 
+#include "Globals.h"
 
-class Veggie{
+class Veggie {
 public:
-	const int SCREEN_WIDTH = 1200;
-	const int SCREEN_HEIGHT = 700;
-
-
 	sf::Sprite player;
 	sf::Texture playerTexture;
 
@@ -15,6 +11,8 @@ public:
 	void update();
 	void movement();
 	void jump();
+	void init();
+	void render(sf::RenderWindow& window);
 
 	sf::Vector2f playerPos;
 	sf::Vector2f playerVelocity;
@@ -29,4 +27,4 @@ public:
 private:
 
 
-}
+};

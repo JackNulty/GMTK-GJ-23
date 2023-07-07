@@ -34,12 +34,15 @@ void Game::run()
 
 void Game::init()
 {
+    myVeg.init();
 }
 
 void Game::render()
 {
+    myVeg.render(m_window);
 }
 
 void Game::update(double dt)
 {
+    myVeg.update();
 }

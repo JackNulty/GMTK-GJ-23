@@ -1,6 +1,6 @@
 #pragma once
 #include "Veggie.h"
-#include <SFML/Graphics.hpp> 
+#include "Globals.h"
 
 class Game {
 public:
@@ -13,6 +13,8 @@ public:
 
 	// main window
 	sf::RenderWindow m_window;
+
+	Veggie myVeg;
 	
 private:
 	
