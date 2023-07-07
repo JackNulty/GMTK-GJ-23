@@ -59,6 +59,11 @@ void Game::update()
     myVeg.update();
 	myLevel.update();
 	myChef.update();
+	if (myChef.facingPlayer == true && inCover == false)
+	{
+		rageMeter++;
+	}
+	std::cout << rageMeter << std::endl;
     render();
 	collision();
 }
@@ -68,5 +73,9 @@ void Game::collision()
 	if (myVeg.player.getGlobalBounds().intersects(myLevel.SaltSprite.getGlobalBounds()))
 	{
 		std::cout << "rage meter wont increase" << std::endl;
+		inCover = true;
+	}
+	else {
+		inCover = false;
 	}
 }
