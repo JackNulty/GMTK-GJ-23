@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() :
-    m_window(sf::VideoMode(1024, 768, 32), "Eat Your Beggies", sf::Style::Default)
+    m_window(sf::VideoMode(SCREEN_WIDTH,SCREEN_HEIGHT, 32), "Eat Your Beggies", sf::Style::Default)
 {
     init();
 }

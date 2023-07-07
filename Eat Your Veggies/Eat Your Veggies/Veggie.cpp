@@ -10,6 +10,7 @@ void Veggie::update()
 	}
 	else gravity = 0.5;
 	movement();
+	player.setPosition(playerPos.x, playerPos.y);
 }
 
 void Veggie::movement()
@@ -25,6 +26,7 @@ void Veggie::movement()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		jump();
+		std::cout << "jump\n";
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
@@ -68,8 +70,9 @@ void Veggie::init()
 	player.setTexture(playerTexture);
 	playerPos.x = SCREEN_WIDTH / 2;
 	playerPos.y = 100;
-	player.setScale(0.2, 0.2);
+	player.setScale(1, 1);
 	player.setOrigin(100, 100);
+	
 
 	if (!platformTexture.loadFromFile("ASSETS/SPRITES/char.png"))
 	{
@@ -86,7 +89,7 @@ void Veggie::init()
 void Veggie::render(sf::RenderWindow& window)
 {
 	window.clear(sf::Color{ 100,100,100,255 });
-	window.draw(platformSprite);
 	window.draw(player);
+	window.draw(platformSprite);
 	window.display();
 }
