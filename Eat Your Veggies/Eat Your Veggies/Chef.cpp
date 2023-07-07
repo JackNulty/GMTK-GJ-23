@@ -48,5 +48,5 @@ void Chef::update()
 		bandroot.setTexture(chefUnawareTexture);
 	}
 
-	std::cout << turnThreshold << "\n";
+	//std::cout << turnThreshold << "\n";
 }

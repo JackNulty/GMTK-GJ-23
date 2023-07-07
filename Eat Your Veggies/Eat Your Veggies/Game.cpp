@@ -65,8 +65,8 @@ void Game::update()
 
 void Game::collision()
 {
-	if (myVeg.player.getGlobalBounds().intersects(myLevel.SaltSprite.getGlobalBounds()))
+	if (myLevel.handleCollisons(myVeg.player) == true)
 	{
-		std::cout << "rage meter wont increase" << std::endl;
+		std::cout << "hiding\n";
 	}
 }
