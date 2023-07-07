@@ -34,11 +34,13 @@ void Game::init()
     myVeg.init();
 	myLevel.init();
 	myHud.init();
+	myChef.init();
 }
 
 void Game::render()
 {
 	m_window.clear(sf::Color{ 255,255,255,255 });
+	myChef.render(m_window);
 	myLevel.render(m_window);
 	myHud.render(m_window);
 	myVeg.render(m_window);
@@ -49,6 +51,7 @@ void Game::update()
 {
     myVeg.update();
 	myLevel.update();
+	myChef.update();
     render();
 	collision();
 }
