@@ -6,6 +6,10 @@ public:
 	void init();
 	void update();
 	void render(sf::RenderWindow& window);
+	void handleObjects();
+	bool handleCollisons(sf::Sprite playerSprite);
+
+private:
 
 	sf::Sprite floorSprite;
 	sf::Texture floorTexture;
@@ -14,8 +18,14 @@ public:
 
 	sf::Sprite SaltSprite;
 	sf::Texture SaltTexture;
+	bool saltAvailable = true;
 
-private:
+	sf::Sprite PepperSprite;
+	sf::Texture PepperTexture;
+	bool pepperAvailable = true;
+
+	sf::Vector2f saltPos = sf::Vector2f(-500, -500);
+	sf::Vector2f pepperPos = sf::Vector2f(-500, -500);
 
 	int floorPosX = 0;
 	int floorPOsY = 575;

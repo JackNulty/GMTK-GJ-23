@@ -51,5 +51,5 @@ void Chef::update()
 		facingPlayer = false;
 	}
 
-	std::cout << turnThreshold << "\n";
+	//std::cout << turnThreshold << "\n";
 }
