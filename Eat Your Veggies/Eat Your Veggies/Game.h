@@ -2,6 +2,7 @@
 #include "Veggie.h"
 #include "Level.h"
 #include "Globals.h"
+#include "HUD.h"
 
 class Game {
 public:
@@ -17,6 +18,7 @@ public:
 
 	Veggie myVeg;
 	Level myLevel;
+	HUD myHud;
 	
 private:
 	

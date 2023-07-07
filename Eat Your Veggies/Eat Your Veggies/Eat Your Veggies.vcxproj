@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Veggie.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Veggie.h" />
   </ItemGroup>
