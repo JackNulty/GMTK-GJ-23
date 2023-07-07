@@ -69,5 +69,5 @@ void Veggie::init()
 void Veggie::render(sf::RenderWindow& window)
 {
 	window.draw(player);
-	window.display();
+	
 }
