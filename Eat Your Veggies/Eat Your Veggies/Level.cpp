@@ -7,12 +7,18 @@ void Level::init()
 		std::cout << "error" << std::endl;
 	}
 	floorSprite.setTexture(floorTexture);
-	floorSprite.setPosition(0, 670);
+	floorSprite.setPosition(floorPosX, floorPOsY);
 	floorSprite.setScale(1, 1);
 }
 
 void Level::update()
 {
+	floorPosX++;
+	floorSprite.setPosition(floorPosX, floorPOsY);
+	if (floorPosX >= SCREEN_WIDTH)
+	{
+		floorPosX = 0;
+	}
 }
 
 void Level::render(sf::RenderWindow& window)

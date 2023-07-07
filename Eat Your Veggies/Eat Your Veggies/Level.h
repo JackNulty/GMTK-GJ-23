@@ -12,4 +12,7 @@ public:
 
 private:
 
+	int floorPosX = 0;
+	int floorPOsY = 650;
+
 };
