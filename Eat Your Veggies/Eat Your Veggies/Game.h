@@ -1,4 +1,5 @@
 #pragma once
+#include "Veggie.h"
 #include <SFML/Graphics.hpp> 
 
 class Game {
