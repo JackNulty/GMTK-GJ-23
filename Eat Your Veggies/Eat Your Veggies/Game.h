@@ -25,6 +25,9 @@ public:
 	Level myLevel;
 	HUD myHud;
 	Chef myChef;
+
+	int rageMeter = 0;
+	bool inCover = false;
 	
 private:
 	

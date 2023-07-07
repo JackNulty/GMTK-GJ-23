@@ -35,17 +35,20 @@ void Chef::update()
 	if (turnTimer >= turnThreshold - 90)
 	{
 		bandroot.setTexture(chefCuriousTexture);
+		facingPlayer = false;
 	}
 	// If the timers up, turn around
 	if (turnTimer >= turnThreshold)
 	{
 		bandroot.setTexture(chefStaringTexture);
+		facingPlayer = true;
 	}
 	if (turnTimer > turnThreshold + 240)
 	{
 		turnTimer = 0;
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
+		facingPlayer = false;
 	}
 
 	//std::cout << turnThreshold << "\n";

@@ -59,6 +59,11 @@ void Game::update()
     myVeg.update();
 	myLevel.update();
 	myChef.update();
+	if (myChef.facingPlayer == true && inCover == false)
+	{
+		rageMeter++;
+	}
+	std::cout << rageMeter << std::endl;
     render();
 	collision();
 }
@@ -67,6 +72,9 @@ void Game::collision()
 {
 	if (myLevel.handleCollisons(myVeg.player) == true)
 	{
-		std::cout << "hiding\n";
+    inCover = true;
+  }
+	else {
+		inCover = false;
 	}
 }
