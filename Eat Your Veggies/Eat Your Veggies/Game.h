@@ -13,6 +13,7 @@ public:
 	void init();
 	void render();
 	void update();
+	void collision();
 
 	// main window
 	sf::RenderWindow m_window;

@@ -41,9 +41,9 @@ void Game::render()
 {
 	m_window.clear(sf::Color{ 255,255,255,255 });
 	myChef.render(m_window);
-    myVeg.render(m_window);
 	myLevel.render(m_window);
 	myHud.render(m_window);
+	myVeg.render(m_window);
 	m_window.display();
 }
 
@@ -53,4 +53,13 @@ void Game::update()
 	myLevel.update();
 	myChef.update();
     render();
+	collision();
+}
+
+void Game::collision()
+{
+	if (myVeg.player.getGlobalBounds().intersects(myLevel.SaltSprite.getGlobalBounds()))
+	{
+		std::cout << "rage meter wont increase" << std::endl;
+	}
 }

@@ -8,12 +8,12 @@ public:
 	void jump();
 	void init();
 	void render(sf::RenderWindow& window);
-
+	sf::Sprite player;
+	sf::Texture playerTexture;
 
 
 private:
-	sf::Sprite player;
-	sf::Texture playerTexture;
+	
 	int ballRadius = 20;
 	sf::Vector2f playerPos;
 	sf::Vector2f playerVelocity;

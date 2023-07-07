@@ -10,9 +10,18 @@ public:
 	sf::Sprite floorSprite;
 	sf::Texture floorTexture;
 
+	sf::Sprite floorSprite1;
+
+	sf::Sprite SaltSprite;
+	sf::Texture SaltTexture;
+
 private:
 
 	int floorPosX = 0;
-	int floorPOsY = 650;
+	int floorPOsY = 575;
 
+	int floorPosX1 = 1280;
+	int floorPOsY1 = 575;
+
+	int floorSize = 1280;
 };
