@@ -13,6 +13,14 @@ void Level::init()
 	floorSprite1.setTexture(floorTexture);
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
 	floorSprite1.setScale(8, 8);
+
+	if (!SaltTexture.loadFromFile("ASSETS/SPRITES/char.png"))
+	{
+		std::cout << "error" << std::endl;
+	}
+	SaltSprite.setTexture(SaltTexture);
+	SaltSprite.setPosition(100,450);
+	SaltSprite.setScale(2, 2);
 }
 
 void Level::update()
@@ -35,6 +43,7 @@ void Level::update()
 
 void Level::render(sf::RenderWindow& window)
 {
+	window.draw(SaltSprite);
 	window.draw(floorSprite);
 	window.draw(floorSprite1);
 }

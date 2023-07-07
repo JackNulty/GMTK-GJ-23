@@ -12,6 +12,9 @@ public:
 
 	sf::Sprite floorSprite1;
 
+	sf::Sprite SaltSprite;
+	sf::Texture SaltTexture;
+
 private:
 
 	int floorPosX = 0;
