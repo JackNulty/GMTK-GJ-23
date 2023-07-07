@@ -17,7 +17,7 @@ private:
 	int floorPosX = 0;
 	int floorPOsY = 650;
 
-	int floorPosX1 = -1200;
+	int floorPosX1 = 1200;
 	int floorPOsY1 = 650;
 
 };

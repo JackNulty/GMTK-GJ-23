@@ -17,19 +17,19 @@ void Level::init()
 
 void Level::update()
 {
-	floorPosX++;
+	floorPosX--;
 	floorSprite.setPosition(floorPosX, floorPOsY);
-	if (floorPosX >= SCREEN_WIDTH)
+	if (floorPosX <= -1200)
 	{
-		floorPosX = -1200;
+		floorPosX = 1200;
 	}
 	std::cout << "1st platform pos" << floorPosX << std::endl;
 	std::cout << "2nd platform pos" << floorPosX1 << std::endl;
-	floorPosX1++;
+	floorPosX1--;
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
-	if (floorPosX1 >= SCREEN_WIDTH)
+	if (floorPosX1 <= -1200)
 	{
-		floorPosX1 = -1200;
+		floorPosX1 = 1200;
 	}
 }
 
