@@ -7,11 +7,9 @@ public:
 	void update();
 	void render(sf::RenderWindow& window);
 
-private:
-	sf::RectangleShape floor;
-
 	sf::Sprite floorSprite;
 	sf::Texture floorTexture;
 
+private:
 
 };
