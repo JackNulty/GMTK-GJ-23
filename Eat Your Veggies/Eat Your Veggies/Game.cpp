@@ -94,12 +94,13 @@ void Game::update()
 	levelBar.setSize(sf::Vector2f(levelBarSize, 60));
 	if (myChef.facingPlayer == true && inCover == false)
 	{
-		rageMeter = rageMeter + 0.1;
+		rageMeter = rageMeter + 0.5;
 	}
 	//std::cout << rageMeter << std::endl;
 	if (rageMeter >= 230 || myVeg.player.getPosition().x <= -50)
 	{
 		gameOver = true;
+		rageMeter = 230;
 	}
 	if (gameOver == true)
 	{
