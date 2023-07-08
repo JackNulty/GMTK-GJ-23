@@ -19,7 +19,10 @@ private:
 
 	int turnTimer = 0;
 	int turnThreshold = 0;
+	sf::SoundBuffer huh;
+	sf::Sound chefNoise;
 
+	bool gawking = true;
 
 public:
 

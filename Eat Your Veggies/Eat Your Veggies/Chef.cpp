@@ -7,16 +7,23 @@ void Chef::init()
 
 	if (!chefUnawareTexture.loadFromFile("ASSETS/SPRITES/chefUnawareUpdated.png"))
 	{
-		std::cout << "Error loading chef back turnt texture";
+		std::cout << "Error loading chef back turnt texture\n";
 	}
 	if (!chefCuriousTexture.loadFromFile("ASSETS/SPRITES/chefTurningUpdated.png"))
 	{
-		std::cout << "Error loading chef turning texture";
+		std::cout << "Error loading chef turning texture\n";
 	}
 	if (!chefStaringTexture.loadFromFile("ASSETS/SPRITES/chefStaringUpdated.png"))
 	{
-		std::cout << "Error loading chef turning texture";
+		std::cout << "Error loading chef staring texture\n";
 	}
+	if (!huh.loadFromFile("ASSETS/AUDIO/huh.ogg"))
+	{
+		std::cout << "error laoding huh? audio\n";
+	}
+
+	chefNoise.setBuffer(huh);
+
 	bandroot.setTexture(chefUnawareTexture);
 	bandroot.setOrigin(213, 160);
 	bandroot.setScale(1.8, 1.8);
@@ -41,6 +48,11 @@ void Chef::update()
 		bandroot.setTextureRect(sf::IntRect(0,0,273,279));
 		bandroot.setOrigin(137, 120);
 		facingPlayer = false;
+		if (gawking == true)
+		{
+			gawking = false;
+			chefNoise.play();
+		}
 	}
 	// If the timers up, turn around
 	if (turnTimer >= turnThreshold)
@@ -55,6 +67,7 @@ void Chef::update()
 		turnTimer = 0;
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
+		gawking = true;
 		bandroot.setTextureRect(sf::IntRect(0, 0, 425, 320));
 		bandroot.setOrigin(213, 160);
 		facingPlayer = false;
