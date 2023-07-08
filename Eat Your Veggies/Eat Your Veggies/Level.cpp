@@ -256,6 +256,11 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 	return false;
 }
 
+void Level::increaseSpeed(int newSpeed)
+{
+	gameSpeed = newSpeed;
+}
+
 bool Level::spawnAvailable(sf::Sprite vegToCheck)
 {
 	if (saltAvailable == false)

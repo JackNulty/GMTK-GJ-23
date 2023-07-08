@@ -9,7 +9,11 @@ public:
 	void handleObjects();
 	bool handleCollisons(sf::Sprite playerSprite);
 
+	void increaseSpeed(int newSpeed);
+
 private:
+	int gameSpeed = minSpeed;
+
 	bool spawnAvailable(sf::Sprite vegToCheck);
 
 	bool newObjectNeeded = true;

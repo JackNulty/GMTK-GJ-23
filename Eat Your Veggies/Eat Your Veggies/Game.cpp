@@ -47,7 +47,7 @@ void Game::init()
 	{
 		std::cout << "error" << std::endl;
 	}
-	gameWinSprite.setTexture(gameWinTexture);
+	//gameWinSprite.setTexture(gameWinTexture);
 
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
 	rageBar.setSize(sf::Vector2f(rageBarSize,60));
@@ -112,6 +112,7 @@ void Game::update()
 	if (levelDistance >= 280)
 	{
 		gameWin = true;
+		increaseGameSpeed();
 	}
 	rageBarSize = rageMeter;
 	rageBar.setSize(sf::Vector2f(rageBarSize, 60));
@@ -127,5 +128,22 @@ void Game::collision()
 	}
 	else {
 		inCover = false;
+	}
+}
+
+void Game::increaseGameSpeed()
+{
+	levelNo++;
+	if (levelNo == 1)
+	{
+		gameSpeed = midSpeed;
+		myVeg.increaseSpeed(gameSpeed);
+		myLevel.increaseSpeed(gameSpeed);
+	}
+	if (levelNo == 2)
+	{
+		gameSpeed = maxSpeed;
+		myVeg.increaseSpeed(gameSpeed);
+		myLevel.increaseSpeed(gameSpeed);
 	}
 }
