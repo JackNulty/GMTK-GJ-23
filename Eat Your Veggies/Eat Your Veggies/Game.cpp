@@ -64,6 +64,14 @@ void Game::update()
 		rageMeter++;
 	}
 	std::cout << rageMeter << std::endl;
+	if (rageMeter >= 200 || myVeg.player.getPosition().x <= -50)
+	{
+		gameOver = true;
+	}
+	if (gameOver == true)
+	{
+		std::cout << "game over" << std::endl;
+	}
     render();
 	collision();
 }

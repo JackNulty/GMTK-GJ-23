@@ -28,6 +28,7 @@ public:
 
 	int rageMeter = 0;
 	bool inCover = false;
+	bool gameOver = false;
 	
 private:
 	
