@@ -25,9 +25,17 @@ void Chef::init()
 	{
 		std::cout << "error laoding whistle audio\n";
 	}
+	if (!cutting.loadFromFile("ASSETS/AUDIO/cutting.ogg"))
+	{
+		std::cout << "error laoding cutting audio\n";
+	}
+	
 
 	chefNoise.setBuffer(whistle);
 	chefNoise.play();
+
+	cuttingNoise.setBuffer(cutting);
+	cuttingNoise.play();
 
 	bandroot.setTexture(chefUnawareTexture);
 	bandroot.setOrigin(213, 160);
@@ -58,6 +66,9 @@ void Chef::update()
 			huhPlayable = false;
 			chefNoise.setBuffer(huh);
 			chefNoise.play();
+
+			cuttingNoise.pause();
+
 		}
 	}
 	// If the timers up, turn around
@@ -85,8 +96,9 @@ void Chef::update()
 			whistlePlayable = false;
 			chefNoise.setBuffer(whistle);
 			chefNoise.play();
+
+			cuttingNoise.play();
 		}
 	}
 
-	//std::cout << turnThreshold << "\n";
 }

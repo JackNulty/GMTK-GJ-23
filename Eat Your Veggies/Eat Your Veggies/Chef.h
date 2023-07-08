@@ -22,6 +22,10 @@ private:
 	sf::SoundBuffer huh;
 	sf::Sound chefNoise;
 	sf::SoundBuffer whistle;
+	
+	// Chopping noise
+	sf::SoundBuffer cutting;
+	sf::Sound cuttingNoise;
 
 	bool huhPlayable = true;
 	bool whistlePlayable = true;

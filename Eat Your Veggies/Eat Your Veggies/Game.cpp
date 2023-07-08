@@ -37,7 +37,7 @@ void Game::init()
 	}
 	background.setTexture(backgroundTexture);
 	background.setScale(0.8, 0.6);
-	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/gameOver.png"))
+	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/lose.jpg"))
 	{
 		std::cout << "error" << std::endl;
 	}
@@ -75,7 +75,7 @@ void Game::render()
 	myVeg.render(m_window);
 	if (gameOver == true)
 	{
-		//m_window.draw(gameOverSprite);
+		m_window.draw(gameOverSprite);
 	}
 	if (gameWin == true)
 	{
