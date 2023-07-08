@@ -98,10 +98,10 @@ void Level::handleObjects()
 		mugPos.x = -170;
 	}
 	bowlPos.x--;
-	if (bowlPos.x < -150 && bowlPos.x > -160)
+	if (bowlPos.x < -350 && bowlPos.x > -360)
 	{
 		newObjectNeeded = true;
-		bowlPos.x = -170;
+		bowlPos.x = -370;
 	}
 
 
