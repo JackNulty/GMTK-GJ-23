@@ -29,9 +29,14 @@ private:
 	sf::Texture MugTexture;
 	bool mugAvailable = true;
 
+	sf::Sprite BowlSprite;
+	sf::Texture BowlTexture;
+	bool bowlAvailable = true;
+
 	sf::Vector2f saltPos = sf::Vector2f(-500, 335);
 	sf::Vector2f pepperPos = sf::Vector2f(-500, 335);
 	sf::Vector2f mugPos = sf::Vector2f(-500, 345);
+	sf::Vector2f bowlPos = sf::Vector2f(-500, 333);
 
 	int floorPosX = 0;
 	int floorPOsY = 575;

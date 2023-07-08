@@ -37,6 +37,14 @@ void Level::init()
 	MugSprite.setTexture(MugTexture);
 	MugSprite.setPosition(mugPos);
 	MugSprite.setScale(4, 4);
+
+	if (!BowlTexture.loadFromFile("ASSETS/SPRITES/fruitBowl.png"))
+	{
+		std::cout << "error loading fruit bowl" << std::endl;
+	}
+	BowlSprite.setTexture(BowlTexture);
+	BowlSprite.setPosition(bowlPos);
+	BowlSprite.setScale(4, 4);
 }
 
 void Level::update()
@@ -65,7 +73,7 @@ void Level::render(sf::RenderWindow& window)
 	window.draw(SaltSprite);
 	window.draw(PepperSprite);
 	window.draw(MugSprite);
-
+	window.draw(BowlSprite);
 
 }
 
@@ -89,12 +97,18 @@ void Level::handleObjects()
 		newObjectNeeded = true;
 		mugPos.x = -170;
 	}
+	bowlPos.x--;
+	if (bowlPos.x < -150 && bowlPos.x > -160)
+	{
+		newObjectNeeded = true;
+		bowlPos.x = -170;
+	}
 
 
 	if (newObjectNeeded == true)
 	{
 		newObjectNeeded = false;
-		int respawnObject = (rand() % 3);
+		int respawnObject = (rand() % 4);
 		if (respawnObject == 0)
 		{
 			if (saltPos.x < -150)
@@ -134,11 +148,25 @@ void Level::handleObjects()
 			}
 			else newObjectNeeded = true;
 		}
+		if (respawnObject == 3)
+		{
+			if (bowlPos.x < -150)
+			{
+				bowlAvailable = true;
+			}
+			if (bowlAvailable == true)
+			{
+				bowlPos.x = 1300;
+				bowlAvailable = false;
+			}
+			else newObjectNeeded = true;
+		}
 	}
 
 	MugSprite.setPosition(mugPos);
 	PepperSprite.setPosition(pepperPos);
 	SaltSprite.setPosition(saltPos);
+	BowlSprite.setPosition(bowlPos);
 }
 
 bool Level::handleCollisons(sf::Sprite playerSprite)
@@ -152,6 +180,10 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 		return true;
 	}
 	if (playerSprite.getGlobalBounds().intersects(MugSprite.getGlobalBounds()))
+	{
+		return true;
+	}
+	if (playerSprite.getGlobalBounds().intersects(BowlSprite.getGlobalBounds()))
 	{
 		return true;
 	}
