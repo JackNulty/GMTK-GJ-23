@@ -71,19 +71,19 @@ void Level::render(sf::RenderWindow& window)
 
 void Level::handleObjects()
 {
-	saltPos.x -= 5;
+	saltPos.x --;
 	if (saltPos.x < -150 && saltPos.x > -160)
 	{
 		newObjectNeeded = true;
 		saltPos.x = -170;
 	}
-	pepperPos.x -= 5;
+	pepperPos.x --;
 	if (pepperPos.x < -150 && pepperPos.x > -160)
 	{
 		newObjectNeeded = true;
 		pepperPos.x = -170;
 	}
-	mugPos.x -=5;
+	mugPos.x --;
 	if (mugPos.x < -150 && mugPos.x > -160)
 	{
 		newObjectNeeded = true;
