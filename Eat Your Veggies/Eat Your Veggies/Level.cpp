@@ -49,7 +49,7 @@ void Level::init()
 
 void Level::update()
 {
-	floorPosX--;
+	floorPosX-= gameSpeed;
 	handleObjects();
 	if (floorPosX <= -floorSize)
 	{
@@ -57,7 +57,7 @@ void Level::update()
 	}
 	//std::cout << "1st platform pos" << floorPosX << std::endl;
 	//std::cout << "2nd platform pos" << floorPosX1 << std::endl;
-	floorPosX1--;
+	floorPosX1-= gameSpeed;
 	if (floorPosX1 <= -floorSize)
 	{
 		floorPosX1 = floorSize;
@@ -79,25 +79,25 @@ void Level::render(sf::RenderWindow& window)
 
 void Level::handleObjects()
 {
-	saltPos.x --;
+	saltPos.x -=gameSpeed;
 	if (saltPos.x < -150 && saltPos.x > -160)
 	{
 		newObjectNeeded = true;
 		saltPos.x = -170;
 	}
-	pepperPos.x --;
+	pepperPos.x -= gameSpeed;
 	if (pepperPos.x < -150 && pepperPos.x > -160)
 	{
 		newObjectNeeded = true;
 		pepperPos.x = -170;
 	}
-	mugPos.x --;
-	if (mugPos.x < -150 && mugPos.x > -160)
+	mugPos.x -= gameSpeed;
+	if (mugPos.x < -250 && mugPos.x > -260)
 	{
 		newObjectNeeded = true;
-		mugPos.x = -170;
+		mugPos.x = -270;
 	}
-	bowlPos.x--;
+	bowlPos.x-= gameSpeed;
 	if (bowlPos.x < -350 && bowlPos.x > -360)
 	{
 		newObjectNeeded = true;
@@ -117,7 +117,13 @@ void Level::handleObjects()
 			}
 			if (saltAvailable == true)
 			{
-				saltPos.x = 1300;
+				tempXPos = (rand() % 400) + 1300;
+				saltPos.x = tempXPos;
+				SaltSprite.setPosition(saltPos);
+				if(spawnAvailable(SaltSprite) == true)
+				{
+					saltPos.x += 350;
+				}
 				saltAvailable = false;
 			}
 			else newObjectNeeded = true;
@@ -130,7 +136,13 @@ void Level::handleObjects()
 			}
 			if (pepperAvailable == true)
 			{
-				pepperPos.x = 1300;
+				tempXPos = (rand() % 400) + 1300;
+				pepperPos.x = tempXPos;
+				PepperSprite.setPosition(pepperPos);
+				if (spawnAvailable(PepperSprite) == true)
+				{
+					pepperPos.x += 350;
+				}
 				pepperAvailable = false;
 			}
 			else newObjectNeeded = true;
@@ -143,7 +155,13 @@ void Level::handleObjects()
 			}
 			if (mugAvailable == true)
 			{
-				mugPos.x = 1300;
+				tempXPos = (rand() % 400) + 1300;
+				mugPos.x = tempXPos;
+				MugSprite.setPosition(mugPos);
+				if (spawnAvailable(MugSprite) == true)
+				{
+					mugPos.x += 350;
+				}
 				mugAvailable = false;
 			}
 			else newObjectNeeded = true;
@@ -156,7 +174,13 @@ void Level::handleObjects()
 			}
 			if (bowlAvailable == true)
 			{
-				bowlPos.x = 1300;
+				tempXPos = (rand() % 400) + 1300;
+				bowlPos.x = tempXPos;
+				BowlSprite.setPosition(bowlPos);
+				if (spawnAvailable(BowlSprite) == true)
+				{
+					bowlPos.x += 350;
+				}
 				bowlAvailable = false;
 			}
 			else newObjectNeeded = true;
@@ -187,5 +211,39 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 	{
 		return true;
 	}
+	return false;
+}
+
+bool Level::spawnAvailable(sf::Sprite vegToCheck)
+{
+	if (saltAvailable == false)
+	{
+		if (vegToCheck.getGlobalBounds().intersects(SaltSprite.getGlobalBounds()))
+		{
+			return true;
+		}
+	}
+	if (pepperAvailable == false)
+	{
+		if (vegToCheck.getGlobalBounds().intersects(PepperSprite.getGlobalBounds()))
+		{
+			return true;
+		}
+	}
+	if (mugAvailable == false)
+	{
+		if (vegToCheck.getGlobalBounds().intersects(MugSprite.getGlobalBounds()))
+		{
+			return true;
+		}
+	}
+	if (bowlAvailable == false)
+	{
+		if (vegToCheck.getGlobalBounds().intersects(BowlSprite.getGlobalBounds()))
+		{
+			return true;
+		}
+	}
+
 	return false;
 }

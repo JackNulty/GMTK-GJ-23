@@ -10,7 +10,7 @@ void Veggie::movement()
 	player.setPosition(playerPos.x, playerPos.y);
 	playerVelocity.y += gravity;
 	playerPos.y += playerVelocity.y;
-	playerPos.x--;
+	playerPos.x-=gameSpeed;
 	if (playerPos.y >= SCREEN_HEIGHT - 128)
 	{
 		playerPos.y = SCREEN_HEIGHT - 128;
