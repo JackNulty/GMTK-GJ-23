@@ -22,13 +22,15 @@ public:
 	sf::Texture backgroundTexture;
 	sf::Sprite gameOverSprite;
 	sf::Texture gameOverTexture;
+	sf::RectangleShape rageBar;
 
 	Veggie myVeg;
 	Level myLevel;
 	HUD myHud;
 	Chef myChef;
 
-	int rageMeter = 0;
+	float rageMeter = 0;
+	int rageBarSize = 0;
 	bool inCover = false;
 	bool gameOver = false;
 	
