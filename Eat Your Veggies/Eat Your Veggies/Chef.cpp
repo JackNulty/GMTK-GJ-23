@@ -19,7 +19,8 @@ void Chef::init()
 	}
 	bandroot.setTexture(chefUnawareTexture);
 	bandroot.setOrigin(213, 160);
-	bandroot.setPosition(400, 200);
+	bandroot.setScale(1.8, 1.8);
+	bandroot.setPosition(600, 300);
 	turnThreshold = rand() % 420+80;
 }
 
@@ -37,14 +38,16 @@ void Chef::update()
 	if (turnTimer >= turnThreshold - 90)
 	{
 		bandroot.setTexture(chefCuriousTexture);
-		bandroot.setOrigin(137, 140);
+		bandroot.setTextureRect(sf::IntRect(0,0,273,279));
+		bandroot.setOrigin(137, 120);
 		facingPlayer = false;
 	}
 	// If the timers up, turn around
 	if (turnTimer >= turnThreshold)
 	{
 		bandroot.setTexture(chefStaringTexture);
-		bandroot.setOrigin(227, 194);
+		bandroot.setTextureRect(sf::IntRect(0, 0, 454, 388));
+		bandroot.setOrigin(227, 184);
 		facingPlayer = true;
 	}
 	if (turnTimer > turnThreshold + 240)
@@ -52,6 +55,7 @@ void Chef::update()
 		turnTimer = 0;
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
+		bandroot.setTextureRect(sf::IntRect(0, 0, 425, 320));
 		bandroot.setOrigin(213, 160);
 		facingPlayer = false;
 	}

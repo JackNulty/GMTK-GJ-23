@@ -151,5 +151,9 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 	{
 		return true;
 	}
+	if (playerSprite.getGlobalBounds().intersects(MugSprite.getGlobalBounds()))
+	{
+		return true;
+	}
 	return false;
 }
