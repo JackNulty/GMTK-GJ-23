@@ -72,8 +72,8 @@ void Game::collision()
 {
 	if (myLevel.handleCollisons(myVeg.player) == true)
 	{
-    inCover = true;
-  }
+		inCover = true;
+	}
 	else {
 		inCover = false;
 	}

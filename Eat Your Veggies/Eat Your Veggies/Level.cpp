@@ -52,21 +52,63 @@ void Level::update()
 
 void Level::render(sf::RenderWindow& window)
 {
-	window.draw(SaltSprite);
-	window.draw(PepperSprite);
 	window.draw(floorSprite);
 	window.draw(floorSprite1);
+	window.draw(SaltSprite);
+	window.draw(PepperSprite);
+
 }
 
 void Level::handleObjects()
 {
-	saltPos.x--;
+	saltPos.x-=5;
+	if (saltPos.x < -150 && saltPos.x > -160)
+	{
+		newObjectNeeded = true;
+		saltPos.x = -170;
+	}
+	pepperPos.x-=5;
+	if (pepperPos.x < -150 && pepperPos.x > -160)
+	{
+		newObjectNeeded = true;
+		pepperPos.x = -170;
+	}
 
 
+	if (newObjectNeeded == true)
+	{
+		newObjectNeeded = false;
+		int respawnObject = (rand() % 2);
+		if (respawnObject == 0)
+		{
+			if (saltPos.x < -150)
+			{
+				saltAvailable = true;
+			}
+			if (saltAvailable == true)
+			{
+				saltPos.x = 1300;
+				saltAvailable = false;
+			}
+			else newObjectNeeded = true;
+		}
+		if (respawnObject == 1)
+		{
+			if (pepperPos.x < -150)
+			{
+				pepperAvailable = true;
+			}
+			if (pepperAvailable == true)
+			{
+				pepperPos.x = 1300;
+				pepperAvailable = false;
+			}
+			else newObjectNeeded = true;
+		}
+	}
 
 
-
-
+	PepperSprite.setPosition(pepperPos);
 	SaltSprite.setPosition(saltPos);
 }
 
