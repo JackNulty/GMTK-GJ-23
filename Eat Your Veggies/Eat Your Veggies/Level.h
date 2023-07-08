@@ -35,10 +35,15 @@ private:
 	sf::Texture BowlTexture;
 	bool bowlAvailable = false;
 
+	sf::Sprite RackSprite;
+	sf::Texture RackTexture;
+	bool rackAvailable = true;
+
 	sf::Vector2f saltPos = sf::Vector2f(-500, 335);
 	sf::Vector2f pepperPos = sf::Vector2f(-500, 335);
 	sf::Vector2f mugPos = sf::Vector2f(-500, 345);
 	sf::Vector2f bowlPos = sf::Vector2f(600, 333);
+	sf::Vector2f rackPos = sf::Vector2f(-500, 260);
 
 	float tempXPos = 0;
 

@@ -45,6 +45,14 @@ void Level::init()
 	BowlSprite.setTexture(BowlTexture);
 	BowlSprite.setPosition(bowlPos);
 	BowlSprite.setScale(4, 4);
+
+	if (!RackTexture.loadFromFile("ASSETS/SPRITES/spiceRack.png"))
+	{
+		std::cout << "error loading spice rack" << std::endl;
+	}
+	RackSprite.setTexture(RackTexture);
+	RackSprite.setPosition(rackPos);
+	RackSprite.setScale(5, 5);
 }
 
 void Level::update()
@@ -74,6 +82,7 @@ void Level::render(sf::RenderWindow& window)
 	window.draw(PepperSprite);
 	window.draw(MugSprite);
 	window.draw(BowlSprite);
+	window.draw(RackSprite);
 
 }
 
@@ -103,12 +112,20 @@ void Level::handleObjects()
 		newObjectNeeded = true;
 		bowlPos.x = -370;
 	}
+	rackPos.x -= gameSpeed;
+	if (rackPos.x < -450 && rackPos.x > -460)
+	{
+		newObjectNeeded = true;
+		rackPos.x = -470;
+	}
+
+
 
 
 	if (newObjectNeeded == true)
 	{
 		newObjectNeeded = false;
-		int respawnObject = (rand() % 4);
+		int respawnObject = (rand() % 5);
 		if (respawnObject == 0)
 		{
 			if (saltPos.x < -150)
@@ -185,12 +202,33 @@ void Level::handleObjects()
 			}
 			else newObjectNeeded = true;
 		}
+
+		if (respawnObject == 4)
+		{
+			if (rackPos.x < -150)
+			{
+				rackAvailable = true;
+			}
+			if (rackAvailable == true)
+			{
+				tempXPos = (rand() % 400) + 1300;
+				rackPos.x = tempXPos;
+				RackSprite.setPosition(rackPos);
+				if (spawnAvailable(RackSprite) == true)
+				{
+					rackPos.x += 350;
+				}
+				rackAvailable = false;
+			}
+			else newObjectNeeded = true;
+		}
 	}
 
 	MugSprite.setPosition(mugPos);
 	PepperSprite.setPosition(pepperPos);
 	SaltSprite.setPosition(saltPos);
 	BowlSprite.setPosition(bowlPos);
+	RackSprite.setPosition(rackPos);
 }
 
 bool Level::handleCollisons(sf::Sprite playerSprite)
@@ -208,6 +246,10 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 		return true;
 	}
 	if (playerSprite.getGlobalBounds().intersects(BowlSprite.getGlobalBounds()))
+	{
+		return true;
+	}
+	if (playerSprite.getGlobalBounds().intersects(RackSprite.getGlobalBounds()))
 	{
 		return true;
 	}
@@ -240,6 +282,13 @@ bool Level::spawnAvailable(sf::Sprite vegToCheck)
 	if (bowlAvailable == false)
 	{
 		if (vegToCheck.getGlobalBounds().intersects(BowlSprite.getGlobalBounds()))
+		{
+			return true;
+		}
+	}
+	if (rackAvailable == false)
+	{
+		if (vegToCheck.getGlobalBounds().intersects(RackSprite.getGlobalBounds()))
 		{
 			return true;
 		}
