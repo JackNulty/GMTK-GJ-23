@@ -20,6 +20,8 @@ public:
 
 	sf::Sprite background;
 	sf::Texture backgroundTexture;
+	sf::Sprite gameOverSprite;
+	sf::Texture gameOverTexture;
 
 	Veggie myVeg;
 	Level myLevel;

@@ -37,6 +37,11 @@ void Game::init()
 	}
 	background.setTexture(backgroundTexture);
 	background.setScale(0.8, 0.6);
+	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/gameOver.png"))
+	{
+		std::cout << "error" << std::endl;
+	}
+	gameOverSprite.setTexture(gameOverTexture);
     myVeg.init();
 	myLevel.init();
 	myHud.init();
@@ -51,6 +56,10 @@ void Game::render()
 	myLevel.render(m_window);
 	myHud.render(m_window);
 	myVeg.render(m_window);
+	if (gameOver == true)
+	{
+		m_window.draw(gameOverSprite);
+	}
 	m_window.display();
 }
 
