@@ -12,6 +12,7 @@ public:
 	sf::Texture playerTexture;
 
 
+	void increaseSpeed(int newSpeed);
 private:
 	
 	int ballRadius = 20;
@@ -22,4 +23,5 @@ private:
 	float gravity = DEFAULT_GRAVITY;
 	float speed = 8;
 	bool readyToJump = false;
+	int gameSpeed = minSpeed;
 };

@@ -43,5 +43,8 @@ public:
 	bool gameWin = false;
 	
 private:
+	int gameSpeed = minSpeed;
+	void increaseGameSpeed();
+	int levelNo = 0;
 	
 };

@@ -71,3 +71,8 @@ void Veggie::render(sf::RenderWindow& window)
 	window.draw(player);
 	
 }
+
+void Veggie::increaseSpeed(int newSpeed)
+{
+	gameSpeed = newSpeed;
+}
