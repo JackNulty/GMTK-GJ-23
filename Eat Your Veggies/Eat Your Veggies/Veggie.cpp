@@ -62,8 +62,8 @@ void Veggie::init()
 	player.setTexture(playerTexture);
 	playerPos.x = SCREEN_WIDTH / 2;
 	playerPos.y = 450;
-	player.setScale(1, 1);
-	player.setOrigin(100, 150);
+	player.setScale(4, 4);
+	player.setOrigin(16, 23);
 }
 
 void Veggie::render(sf::RenderWindow& window)
