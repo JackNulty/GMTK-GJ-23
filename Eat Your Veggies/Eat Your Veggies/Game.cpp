@@ -88,8 +88,11 @@ void Game::update()
 {
     myVeg.update();
 	myLevel.update();
-	myChef.update();
-	levelDistance = levelDistance + 0.1;
+	if (gameOver == false)
+	{
+		myChef.update();
+	}
+	levelDistance = levelDistance + 0.075;
 	levelBarSize = levelDistance;
 	levelBar.setSize(sf::Vector2f(levelBarSize, 60));
 	if (myChef.facingPlayer == true && inCover == false)
