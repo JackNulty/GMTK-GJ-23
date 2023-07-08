@@ -22,6 +22,8 @@ public:
 	sf::Texture backgroundTexture;
 	sf::Sprite gameOverSprite;
 	sf::Texture gameOverTexture;
+	sf::Sprite gameWinSprite;
+	sf::Texture gameWinTexture;
 	sf::RectangleShape rageBar;
 	sf::RectangleShape levelBar;
 
@@ -38,6 +40,7 @@ public:
 
 	bool inCover = false;
 	bool gameOver = false;
+	bool gameWin = false;
 	
 private:
 	

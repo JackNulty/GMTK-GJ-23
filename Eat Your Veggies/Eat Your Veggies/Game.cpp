@@ -43,6 +43,12 @@ void Game::init()
 	}
 	gameOverSprite.setTexture(gameOverTexture);
 
+	if (!gameWinTexture.loadFromFile("ASSETS/SPRITES/veggieWinScreen.png"))
+	{
+		std::cout << "error" << std::endl;
+	}
+	gameWinSprite.setTexture(gameWinTexture);
+
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
 	rageBar.setSize(sf::Vector2f(rageBarSize,60));
 	rageBar.setPosition(60, 36);
@@ -71,6 +77,10 @@ void Game::render()
 	{
 		//m_window.draw(gameOverSprite);
 	}
+	if (gameWin == true)
+	{
+		m_window.draw(gameWinSprite);
+	}
 	m_window.display();
 }
 
@@ -94,6 +104,10 @@ void Game::update()
 	if (gameOver == true)
 	{
 		std::cout << "game over" << std::endl;
+	}
+	if (levelDistance >= 280)
+	{
+		gameWin = true;
 	}
 	rageBarSize = rageMeter;
 	rageBar.setSize(sf::Vector2f(rageBarSize, 60));
