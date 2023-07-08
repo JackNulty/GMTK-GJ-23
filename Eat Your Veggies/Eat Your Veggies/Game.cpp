@@ -77,7 +77,7 @@ void Game::update()
 		rageMeter = rageMeter + 0.1;
 	}
 	//std::cout << rageMeter << std::endl;
-	if (rageMeter >= 200 || myVeg.player.getPosition().x <= -50)
+	if (rageMeter >= 230 || myVeg.player.getPosition().x <= -50)
 	{
 		gameOver = true;
 	}
