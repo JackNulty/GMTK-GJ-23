@@ -14,6 +14,16 @@ void Level::init()
 	floorSprite1.setPosition(floorPosX1, floorPOsY1);
 	floorSprite1.setScale(8, 8);
 
+
+	if (!floorHiddenTexture.loadFromFile("ASSETS/SPRITES/HiddenCounter.png"))
+	{
+		std::cout << "hidden floor remains hidden" << std::endl;
+	}
+	floorHiddenSprite.setTexture(floorHiddenTexture);
+	floorHiddenSprite.setPosition(0, floorPOsY);
+	floorHiddenSprite.setScale(8, 8);
+
+
 	if (!SaltTexture.loadFromFile("ASSETS/SPRITES/salt.png"))
 	{
 		std::cout << "error" << std::endl;
@@ -76,6 +86,7 @@ void Level::update()
 
 void Level::render(sf::RenderWindow& window)
 {
+	window.draw(floorHiddenSprite);
 	window.draw(floorSprite);
 	window.draw(floorSprite1);
 	window.draw(SaltSprite);

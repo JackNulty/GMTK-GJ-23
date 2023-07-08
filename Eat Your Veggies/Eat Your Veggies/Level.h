@@ -23,6 +23,9 @@ private:
 
 	sf::Sprite floorSprite1;
 
+	sf::Sprite floorHiddenSprite;
+	sf::Texture floorHiddenTexture;
+
 	sf::Sprite SaltSprite;
 	sf::Texture SaltTexture;
 	bool saltAvailable = true;

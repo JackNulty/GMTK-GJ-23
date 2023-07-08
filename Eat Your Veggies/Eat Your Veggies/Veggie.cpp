@@ -11,9 +11,9 @@ void Veggie::movement()
 	playerVelocity.y += gravity;
 	playerPos.y += playerVelocity.y;
 	playerPos.x-=gameSpeed;
-	if (playerPos.y >= SCREEN_HEIGHT - 128)
+	if (playerPos.y >= SCREEN_HEIGHT - 200)
 	{
-		playerPos.y = SCREEN_HEIGHT - 128;
+		playerPos.y = SCREEN_HEIGHT - 200;
 		readyToJump = true;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -61,7 +61,7 @@ void Veggie::init()
 	}
 	player.setTexture(playerTexture);
 	playerPos.x = SCREEN_WIDTH / 2;
-	playerPos.y = 450;
+	playerPos.y = 300;
 	player.setScale(4, 4);
 	player.setOrigin(16, 23);
 }
