@@ -10,6 +10,7 @@ public:
 	bool handleCollisons(sf::Sprite playerSprite);
 
 private:
+	bool newObjectNeeded = true;
 
 	sf::Sprite floorSprite;
 	sf::Texture floorTexture;
@@ -24,8 +25,8 @@ private:
 	sf::Texture PepperTexture;
 	bool pepperAvailable = true;
 
-	sf::Vector2f saltPos = sf::Vector2f(-500, -500);
-	sf::Vector2f pepperPos = sf::Vector2f(-500, -500);
+	sf::Vector2f saltPos = sf::Vector2f(-500, 335);
+	sf::Vector2f pepperPos = sf::Vector2f(-500, 335);
 
 	int floorPosX = 0;
 	int floorPOsY = 575;
