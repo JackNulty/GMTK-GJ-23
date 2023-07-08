@@ -5,20 +5,22 @@ void Chef::init()
 {
 	std::srand(time(NULL));
 
-	if (!chefUnawareTexture.loadFromFile("ASSETS/SPRITES/chefUnaware.png"))
+	if (!chefUnawareTexture.loadFromFile("ASSETS/SPRITES/chefUnawareUpdated.png"))
 	{
 		std::cout << "Error loading chef back turnt texture";
 	}
-	if (!chefCuriousTexture.loadFromFile("ASSETS/SPRITES/chefTurning.png"))
+	if (!chefCuriousTexture.loadFromFile("ASSETS/SPRITES/chefTurningUpdated.png"))
 	{
 		std::cout << "Error loading chef turning texture";
 	}
-	if (!chefStaringTexture.loadFromFile("ASSETS/SPRITES/chefStaring.png"))
+	if (!chefStaringTexture.loadFromFile("ASSETS/SPRITES/chefStaringUpdated.png"))
 	{
 		std::cout << "Error loading chef turning texture";
 	}
 	bandroot.setTexture(chefUnawareTexture);
-	turnThreshold = rand() % 480;
+	bandroot.setOrigin(213, 160);
+	bandroot.setPosition(400, 200);
+	turnThreshold = rand() % 420+80;
 }
 
 void Chef::render(sf::RenderWindow& window)
@@ -35,12 +37,14 @@ void Chef::update()
 	if (turnTimer >= turnThreshold - 90)
 	{
 		bandroot.setTexture(chefCuriousTexture);
+		bandroot.setOrigin(137, 140);
 		facingPlayer = false;
 	}
 	// If the timers up, turn around
 	if (turnTimer >= turnThreshold)
 	{
 		bandroot.setTexture(chefStaringTexture);
+		bandroot.setOrigin(227, 194);
 		facingPlayer = true;
 	}
 	if (turnTimer > turnThreshold + 240)
@@ -48,6 +52,7 @@ void Chef::update()
 		turnTimer = 0;
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
+		bandroot.setOrigin(213, 160);
 		facingPlayer = false;
 	}
 

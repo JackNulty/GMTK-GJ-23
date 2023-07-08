@@ -62,7 +62,7 @@ void Game::render()
 	myVeg.render(m_window);
 	if (gameOver == true)
 	{
-		m_window.draw(gameOverSprite);
+		//m_window.draw(gameOverSprite);
 	}
 	m_window.display();
 }
@@ -76,7 +76,7 @@ void Game::update()
 	{
 		rageMeter = rageMeter + 0.1;
 	}
-	std::cout << rageMeter << std::endl;
+	//std::cout << rageMeter << std::endl;
 	if (rageMeter >= 200 || myVeg.player.getPosition().x <= -50)
 	{
 		gameOver = true;
