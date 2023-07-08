@@ -21,8 +21,13 @@ void Chef::init()
 	{
 		std::cout << "error laoding huh? audio\n";
 	}
+	if (!whistle.loadFromFile("ASSETS/AUDIO/whistle.ogg"))
+	{
+		std::cout << "error laoding whistle audio\n";
+	}
 
-	chefNoise.setBuffer(huh);
+	chefNoise.setBuffer(whistle);
+	chefNoise.play();
 
 	bandroot.setTexture(chefUnawareTexture);
 	bandroot.setOrigin(213, 160);
@@ -48,9 +53,10 @@ void Chef::update()
 		bandroot.setTextureRect(sf::IntRect(0,0,273,279));
 		bandroot.setOrigin(137, 120);
 		facingPlayer = false;
-		if (gawking == true)
+		if (huhPlayable == true)
 		{
-			gawking = false;
+			huhPlayable = false;
+			chefNoise.setBuffer(huh);
 			chefNoise.play();
 		}
 	}
@@ -61,16 +67,25 @@ void Chef::update()
 		bandroot.setTextureRect(sf::IntRect(0, 0, 454, 388));
 		bandroot.setOrigin(227, 184);
 		facingPlayer = true;
+
+		whistlePlayable = true;
 	}
 	if (turnTimer > turnThreshold + 240)
 	{
 		turnTimer = 0;
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
-		gawking = true;
+		huhPlayable = true;
 		bandroot.setTextureRect(sf::IntRect(0, 0, 425, 320));
 		bandroot.setOrigin(213, 160);
 		facingPlayer = false;
+
+		if (whistlePlayable == true)
+		{
+			whistlePlayable = false;
+			chefNoise.setBuffer(whistle);
+			chefNoise.play();
+		}
 	}
 
 	//std::cout << turnThreshold << "\n";

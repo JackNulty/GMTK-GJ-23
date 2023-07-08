@@ -21,8 +21,10 @@ private:
 	int turnThreshold = 0;
 	sf::SoundBuffer huh;
 	sf::Sound chefNoise;
+	sf::SoundBuffer whistle;
 
-	bool gawking = true;
+	bool huhPlayable = true;
+	bool whistlePlayable = true;
 
 public:
 
