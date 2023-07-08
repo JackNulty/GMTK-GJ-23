@@ -42,9 +42,15 @@ void Game::init()
 		std::cout << "error" << std::endl;
 	}
 	gameOverSprite.setTexture(gameOverTexture);
+
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
 	rageBar.setSize(sf::Vector2f(rageBarSize,60));
 	rageBar.setPosition(60, 36);
+
+	levelBar.setFillColor(sf::Color(sf::Color::Blue));
+	levelBar.setSize(sf::Vector2f(levelBarSize, 60));
+	levelBar.setPosition(908, 42);
+
     myVeg.init();
 	myLevel.init();
 	myHud.init();
@@ -58,6 +64,7 @@ void Game::render()
 	myChef.render(m_window);
 	myLevel.render(m_window);
 	m_window.draw(rageBar);
+	m_window.draw(levelBar);
 	myHud.render(m_window);
 	myVeg.render(m_window);
 	if (gameOver == true)
@@ -72,6 +79,9 @@ void Game::update()
     myVeg.update();
 	myLevel.update();
 	myChef.update();
+	levelDistance = levelDistance + 0.1;
+	levelBarSize = levelDistance;
+	levelBar.setSize(sf::Vector2f(levelBarSize, 60));
 	if (myChef.facingPlayer == true && inCover == false)
 	{
 		rageMeter = rageMeter + 0.1;

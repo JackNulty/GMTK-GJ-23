@@ -23,6 +23,7 @@ public:
 	sf::Sprite gameOverSprite;
 	sf::Texture gameOverTexture;
 	sf::RectangleShape rageBar;
+	sf::RectangleShape levelBar;
 
 	Veggie myVeg;
 	Level myLevel;
@@ -31,6 +32,10 @@ public:
 
 	float rageMeter = 0;
 	int rageBarSize = 0;
+
+	float levelDistance = 0;
+	int levelBarSize = 0;
+
 	bool inCover = false;
 	bool gameOver = false;
 	
