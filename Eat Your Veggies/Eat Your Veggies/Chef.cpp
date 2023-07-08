@@ -5,15 +5,15 @@ void Chef::init()
 {
 	std::srand(time(NULL));
 
-	if (!chefUnawareTexture.loadFromFile("ASSETS/SPRITES/backTurnedChefTemp.png"))
+	if (!chefUnawareTexture.loadFromFile("ASSETS/SPRITES/chefUnaware.png"))
 	{
 		std::cout << "Error loading chef back turnt texture";
 	}
-	if (!chefCuriousTexture.loadFromFile("ASSETS/SPRITES/turningChefTemp.png"))
+	if (!chefCuriousTexture.loadFromFile("ASSETS/SPRITES/chefTurning.png"))
 	{
 		std::cout << "Error loading chef turning texture";
 	}
-	if (!chefStaringTexture.loadFromFile("ASSETS/SPRITES/turnedAroundChefTemp.png"))
+	if (!chefStaringTexture.loadFromFile("ASSETS/SPRITES/chefStaring.png"))
 	{
 		std::cout << "Error loading chef turning texture";
 	}
