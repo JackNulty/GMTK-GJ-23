@@ -29,6 +29,14 @@ void Level::init()
 	PepperSprite.setTexture(PepperTexture);
 	PepperSprite.setPosition(pepperPos);
 	PepperSprite.setScale(4, 4);
+
+	if (!MugTexture.loadFromFile("ASSETS/SPRITES/coffeeRounded.png"))
+	{
+		std::cout << "error loading coffee" << std::endl;
+	}
+	MugSprite.setTexture(MugTexture);
+	MugSprite.setPosition(mugPos);
+	MugSprite.setScale(4, 4);
 }
 
 void Level::update()
@@ -56,29 +64,37 @@ void Level::render(sf::RenderWindow& window)
 	window.draw(floorSprite1);
 	window.draw(SaltSprite);
 	window.draw(PepperSprite);
+	window.draw(MugSprite);
+
 
 }
 
 void Level::handleObjects()
 {
-	saltPos.x-=5;
+	saltPos.x --;
 	if (saltPos.x < -150 && saltPos.x > -160)
 	{
 		newObjectNeeded = true;
 		saltPos.x = -170;
 	}
-	pepperPos.x-=5;
+	pepperPos.x --;
 	if (pepperPos.x < -150 && pepperPos.x > -160)
 	{
 		newObjectNeeded = true;
 		pepperPos.x = -170;
+	}
+	mugPos.x --;
+	if (mugPos.x < -150 && mugPos.x > -160)
+	{
+		newObjectNeeded = true;
+		mugPos.x = -170;
 	}
 
 
 	if (newObjectNeeded == true)
 	{
 		newObjectNeeded = false;
-		int respawnObject = (rand() % 2);
+		int respawnObject = (rand() % 3);
 		if (respawnObject == 0)
 		{
 			if (saltPos.x < -150)
@@ -105,9 +121,22 @@ void Level::handleObjects()
 			}
 			else newObjectNeeded = true;
 		}
+		if (respawnObject == 2)
+		{
+			if (mugPos.x < -150)
+			{
+				mugAvailable = true;
+			}
+			if (mugAvailable == true)
+			{
+				mugPos.x = 1300;
+				mugAvailable = false;
+			}
+			else newObjectNeeded = true;
+		}
 	}
 
-
+	MugSprite.setPosition(mugPos);
 	PepperSprite.setPosition(pepperPos);
 	SaltSprite.setPosition(saltPos);
 }
