@@ -38,6 +38,5 @@ public:
 	void update();
 	bool facingPlayer = false;
 
-	bool stop = false;
 };
 

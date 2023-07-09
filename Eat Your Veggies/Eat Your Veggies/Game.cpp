@@ -151,10 +151,6 @@ void Game::render()
 		m_window.draw(gameWinSprite);
 		stop = true;
 	}
-	if (stop = true)
-	{
-		m_window.draw(gameWinSprite);
-	}
 	m_window.draw(introCards);
 	if (drawPrompt == true)
 	{
@@ -234,7 +230,7 @@ void Game::update()
 		{
 			myChef.update();
 		}
-		levelDistance = levelDistance + 0.075;
+		levelDistance = levelDistance + 0.075;///////////////////////////0.75
 		levelBarSize = levelDistance;
 		levelBar.setSize(sf::Vector2f(levelBarSize, 60));
 		if (myChef.facingPlayer == true && inCover == false)
@@ -249,7 +245,7 @@ void Game::update()
 		}
 		if (gameOver == true)
 		{
-			std::cout << "game over" << std::endl;
+			//std::cout << "game over" << std::endl;
 		}
 		levelCompleted = false;
 		if (levelDistance >= 280)
@@ -258,7 +254,7 @@ void Game::update()
 			levelPopupCounter--;
 			if (levelPopupCounter >= 0)
 			{
-				std::cout << "well done level passed" << std::endl;
+				//std::cout << "well done level passed" << std::endl;
 				levelCompleted = true;
 			}
 			if (levelPopupCounter <= 0)
@@ -270,7 +266,18 @@ void Game::update()
 				increaseGameSpeed();
 			}
 		}
+		if (levelNo == 2 && levelDistance >= 280)
+		{
+			levelCompleteSprite.setTexture(gameWinTexture);
+			levelCompleteSprite.setScale(1, 1);
+			levelCompleteSprite.setTextureRect(sf::IntRect(0, 0, 1200, 700));
+			gameStarted = false;
+		}
 		rageBarSize = rageMeter;
+		if (rageMeter < 0)
+		{
+			rageMeter = 0;
+		}
 		rageBar.setSize(sf::Vector2f(rageBarSize, 60));
 		
 		collision();
