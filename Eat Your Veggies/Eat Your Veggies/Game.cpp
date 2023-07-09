@@ -33,46 +33,57 @@ void Game::init()
 {
 	if (!backgroundTexture.loadFromFile("ASSETS/SPRITES/kitchen.jpg"))
 	{
-		std::cout << "error" << std::endl;
+		std::cout << "error\n" << std::endl;
 	}
 	background.setTexture(backgroundTexture);
 	background.setScale(0.8, 0.6);
 	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/lose.jpg"))
 	{
-		std::cout << "error" << std::endl;
+		std::cout << "error\n" << std::endl;
 	}
 	gameOverSprite.setTexture(gameOverTexture);
 
 	if (!gameWinTexture.loadFromFile("ASSETS/SPRITES/veggieWinScreen.png"))
 	{
-		std::cout << "error" << std::endl;
+		std::cout << "error\n" << std::endl;
 	}
 	gameWinSprite.setTexture(gameWinTexture);
 
 	if (!levelCompleteTex.loadFromFile("ASSETS/SPRITES/LevelCompletedPlaceholder.png"))
 	{
-		std::cout << "level complete screen failed to load";
+		std::cout << "level complete screen failed to load\n";
 	}
 	levelCompleteSprite.setTexture(levelCompleteTex);
 
 	if (!splashScreen.loadFromFile("ASSETS/SPRITES/splashScreen.png"))
 	{
-		std::cout << "Splash screen failed to load";
+		std::cout << "Splash screen failed to load\n";
 	}
 	introCards.setTexture(splashScreen);
 	if (!tutorialHide.loadFromFile("ASSETS/SPRITES/tutorialImageHide.png"))
 	{
-		std::cout << "tutorial hide screen failed to load";
+		std::cout << "tutorial hide screen failed to load\n";
 	}
 	if (!tutorialLevel.loadFromFile("ASSETS/SPRITES/tutorialImageProg.png"))
 	{
-		std::cout << "tutorial level screen failed to load";
+		std::cout << "tutorial level screen failed to load\n";
 	}
 	if (!tutorialRage.loadFromFile("ASSETS/SPRITES/tutorialImageRage.png"))
 	{
-		std::cout << "tutorial rage screen failed to load";
+		std::cout << "tutorial rage screen failed to load\n";
 	}
-
+	if (!tutorialControls.loadFromFile("ASSETS/SPRITES/tutorialImageControls.png"))
+	{
+		std::cout << "tutorial controls screen failed to load\n";
+	}
+	if (!spacePrompt.loadFromFile("ASSETS/SPRITES/continue.png"))
+	{
+		std::cout << "error loading prompt\n";
+	}
+	promptSprite.setTexture(spacePrompt);
+	promptSprite.setScale(2, 2);
+	promptSprite.setOrigin(152.5, 16);
+	promptSprite.setPosition(SCREEN_WIDTH / 2, 650);
 
 
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
@@ -83,7 +94,12 @@ void Game::init()
 	levelBar.setSize(sf::Vector2f(levelBarSize, 60));
 	levelBar.setPosition(908, 42);
 
-    myVeg.init();
+
+}
+
+void Game::initGame()
+{
+	myVeg.init();
 	myLevel.init();
 	myHud.init();
 	myChef.init();
@@ -113,6 +129,11 @@ void Game::render()
 		m_window.draw(gameWinSprite);
 	}
 	m_window.draw(introCards);
+	if (drawPrompt == true)
+	{
+		m_window.draw(promptSprite);
+	}
+	
 	m_window.display();
 }
 
@@ -121,9 +142,11 @@ void Game::update()
 	if (gameStarted == false)
 	{
 		spaceCooldown--;
+		drawPrompt = false;
 		if (spaceCooldown < 0)
 		{
 			spaceCooldown = 0;
+			drawPrompt = true;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)&&spaceCooldown == 0)
 		{
@@ -142,14 +165,20 @@ void Game::update()
 		{
 			introCards.setTexture(tutorialLevel);
 		}
-		if (cardNo == 4)
+		if (cardNo == 3)
 		{
 			introCards.setTexture(tutorialRage);
+		}
+		if (cardNo == 4)
+		{
+			introCards.setTexture(tutorialControls);
 		}
 		if (cardNo == 5)
 		{
 			introCards.setPosition(-1000, -1000);
 			gameStarted = true;
+			drawPrompt = false;
+			initGame();
 		}
 	}
 	if (gameStarted == true)
@@ -231,3 +260,4 @@ void Game::increaseGameSpeed()
 		myLevel.increaseSpeed(gameSpeed);
 	}
 }
+
