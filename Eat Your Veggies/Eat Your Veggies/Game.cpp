@@ -99,7 +99,7 @@ void Game::init()
 		std::cout << "error loading game music\n";
 	}
 	Music.setBuffer(MenuMusic);
-	Music.setVolume(1);
+	Music.setVolume(25);
 	Music.play();
 
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
@@ -116,7 +116,7 @@ void Game::init()
 void Game::initGame()
 {
 	Music.setBuffer(GameMusic);
-	Music.setVolume(1);
+	Music.setVolume(15);
 	Music.setLoop(true);
 	Music.play();
 
