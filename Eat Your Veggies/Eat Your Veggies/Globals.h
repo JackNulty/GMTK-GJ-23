@@ -8,4 +8,4 @@ const int SCREEN_HEIGHT = 700;
 
 const int minSpeed = 1;
 const int midSpeed = 2;
-const int maxSpeed = 3;
+const int maxSpeed = 4;

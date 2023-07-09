@@ -13,6 +13,8 @@ public:
 
 
 	void increaseSpeed(int newSpeed);
+
+	void resetPlayer();
 private:
 	
 	int ballRadius = 20;

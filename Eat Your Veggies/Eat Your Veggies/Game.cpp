@@ -47,7 +47,16 @@ void Game::init()
 	{
 		std::cout << "error" << std::endl;
 	}
-	//gameWinSprite.setTexture(gameWinTexture);
+	gameWinSprite.setTexture(gameWinTexture);
+
+	if (!levelCompleteTex.loadFromFile("ASSETS/SPRITES/LevelCompletedPlaceholder.png"))
+	{
+		std::cout << "level complete screen failed to load";
+	}
+	levelCompleteSprite.setTexture(levelCompleteTex);
+
+
+
 
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
 	rageBar.setSize(sf::Vector2f(rageBarSize,60));
@@ -73,11 +82,16 @@ void Game::render()
 	m_window.draw(levelBar);
 	myHud.render(m_window);
 	myVeg.render(m_window);
+	if (levelCompleted == true)
+	{
+		m_window.draw(levelCompleteSprite);
+		myVeg.resetPlayer();
+	}
 	if (gameOver == true)
 	{
 		m_window.draw(gameOverSprite);
 	}
-	if (gameWin == true)
+	if (levelNo == 3)
 	{
 		m_window.draw(gameWinSprite);
 	}
@@ -88,7 +102,7 @@ void Game::update()
 {
     myVeg.update();
 	myLevel.update();
-	if (gameOver == false)
+	if (gameOver == false || levelNo != 3)
 	{
 		myChef.update();
 	}
@@ -109,6 +123,7 @@ void Game::update()
 	{
 		std::cout << "game over" << std::endl;
 	}
+	levelCompleted = false;
 	if (levelDistance >= 280)
 	{
 		gameWin = true;
@@ -116,6 +131,7 @@ void Game::update()
 		if (levelPopupCounter >= 0)
 		{
 			std::cout << "well done level passed" << std::endl;
+			levelCompleted = true;
 		}
 		if (levelPopupCounter <= 0)
 		{
@@ -123,9 +139,8 @@ void Game::update()
 			rageMeter = 0;
 			levelPopupCounter = 240;
 			gameWin = false;
+			increaseGameSpeed();
 		}
-		
-		increaseGameSpeed();
 	}
 	rageBarSize = rageMeter;
 	rageBar.setSize(sf::Vector2f(rageBarSize, 60));

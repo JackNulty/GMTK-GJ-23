@@ -48,5 +48,9 @@ private:
 	int gameSpeed = minSpeed;
 	void increaseGameSpeed();
 	int levelNo = 0;
+
+	sf::Sprite levelCompleteSprite;
+	sf::Texture levelCompleteTex;
+	bool levelCompleted;
 	
 };

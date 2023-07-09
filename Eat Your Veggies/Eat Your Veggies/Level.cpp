@@ -118,16 +118,16 @@ void Level::handleObjects()
 		mugPos.x = -270;
 	}
 	bowlPos.x-= gameSpeed;
-	if (bowlPos.x < -350 && bowlPos.x > -360)
+	if (bowlPos.x < -410 && bowlPos.x > -420)
 	{
 		newObjectNeeded = true;
-		bowlPos.x = -370;
+		bowlPos.x = -430;
 	}
 	rackPos.x -= gameSpeed;
-	if (rackPos.x < -450 && rackPos.x > -460)
+	if (rackPos.x < -470 && rackPos.x > -480)
 	{
 		newObjectNeeded = true;
-		rackPos.x = -470;
+		rackPos.x = -490;
 	}
 
 
@@ -150,7 +150,7 @@ void Level::handleObjects()
 				SaltSprite.setPosition(saltPos);
 				if(spawnAvailable(SaltSprite) == true)
 				{
-					saltPos.x += 350;
+					saltPos.x += 650;
 				}
 				saltAvailable = false;
 			}
@@ -169,7 +169,7 @@ void Level::handleObjects()
 				PepperSprite.setPosition(pepperPos);
 				if (spawnAvailable(PepperSprite) == true)
 				{
-					pepperPos.x += 350;
+					pepperPos.x += 650;
 				}
 				pepperAvailable = false;
 			}
@@ -188,7 +188,7 @@ void Level::handleObjects()
 				MugSprite.setPosition(mugPos);
 				if (spawnAvailable(MugSprite) == true)
 				{
-					mugPos.x += 350;
+					mugPos.x += 650;
 				}
 				mugAvailable = false;
 			}
@@ -207,7 +207,7 @@ void Level::handleObjects()
 				BowlSprite.setPosition(bowlPos);
 				if (spawnAvailable(BowlSprite) == true)
 				{
-					bowlPos.x += 350;
+					bowlPos.x += 650;
 				}
 				bowlAvailable = false;
 			}
@@ -227,7 +227,7 @@ void Level::handleObjects()
 				RackSprite.setPosition(rackPos);
 				if (spawnAvailable(RackSprite) == true)
 				{
-					rackPos.x += 350;
+					rackPos.x += 650;
 				}
 				rackAvailable = false;
 			}

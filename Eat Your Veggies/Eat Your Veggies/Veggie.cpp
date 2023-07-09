@@ -33,7 +33,7 @@ void Veggie::movement()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		if (playerPos.x >= SCREEN_WIDTH)
+		if (playerPos.x >= SCREEN_WIDTH - 8)
 		{
 			playerPos.x = SCREEN_WIDTH;
 		}
@@ -75,4 +75,11 @@ void Veggie::render(sf::RenderWindow& window)
 void Veggie::increaseSpeed(int newSpeed)
 {
 	gameSpeed = newSpeed;
+}
+
+void Veggie::resetPlayer()
+{
+	playerPos.x = SCREEN_WIDTH / 2;
+	playerPos.y = 300;
+	player.setPosition(playerPos);
 }
