@@ -213,6 +213,11 @@ void Game::collision()
 	else {
 		inCover = false;
 	}
+
+	if (myLevel.handleStarCollisions(myVeg.player) == true)
+	{
+		rageMeter -= 15;
+	}
 }
 
 void Game::increaseGameSpeed()

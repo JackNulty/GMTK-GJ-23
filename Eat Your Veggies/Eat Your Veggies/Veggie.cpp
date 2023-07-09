@@ -20,7 +20,7 @@ void Veggie::movement()
 	{
 		jump();
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		if (playerPos.x <= 0)
 		{
@@ -31,7 +31,7 @@ void Veggie::movement()
 			playerPos.x -= speed;
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		if (playerPos.x >= SCREEN_WIDTH - 8)
 		{

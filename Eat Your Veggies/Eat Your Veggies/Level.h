@@ -8,6 +8,7 @@ public:
 	void render(sf::RenderWindow& window);
 	void handleObjects();
 	bool handleCollisons(sf::Sprite playerSprite);
+	bool handleStarCollisions(sf::Sprite playerSprite);
 
 	void increaseSpeed(int newSpeed);
 
@@ -46,11 +47,16 @@ private:
 	sf::Texture RackTexture;
 	bool rackAvailable = true;
 
+	sf::Sprite starSprite;
+	sf::Texture starTexture;
+	bool starAvailable = true;
+
 	sf::Vector2f saltPos = sf::Vector2f(-500, 335);
 	sf::Vector2f pepperPos = sf::Vector2f(-500, 335);
 	sf::Vector2f mugPos = sf::Vector2f(-500, 345);
 	sf::Vector2f bowlPos = sf::Vector2f(600, 333);
 	sf::Vector2f rackPos = sf::Vector2f(-500, 260);
+	sf::Vector2f starPos = sf::Vector2f(2500, 200);
 
 	float tempXPos = 0;
 

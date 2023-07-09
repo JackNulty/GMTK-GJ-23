@@ -63,6 +63,14 @@ void Level::init()
 	RackSprite.setTexture(RackTexture);
 	RackSprite.setPosition(rackPos);
 	RackSprite.setScale(5, 5);
+
+	if (!starTexture.loadFromFile("ASSETS/SPRITES/star.png"))
+	{
+		std::cout << "error loading star" << std::endl;
+	}
+	starSprite.setTexture(starTexture);
+	starSprite.setPosition(starPos);
+	starSprite.setScale(5, 5);
 }
 
 void Level::update()
@@ -94,7 +102,7 @@ void Level::render(sf::RenderWindow& window)
 	window.draw(MugSprite);
 	window.draw(BowlSprite);
 	window.draw(RackSprite);
-
+	window.draw(starSprite);
 }
 
 void Level::handleObjects()
@@ -128,6 +136,11 @@ void Level::handleObjects()
 	{
 		newObjectNeeded = true;
 		rackPos.x = -490;
+	}
+	starPos.x -= gameSpeed + 2;
+	if (starPos.x < -470 && rackPos.x > -480)
+	{
+		starPos.x = 2500;
 	}
 
 
@@ -240,6 +253,7 @@ void Level::handleObjects()
 	SaltSprite.setPosition(saltPos);
 	BowlSprite.setPosition(bowlPos);
 	RackSprite.setPosition(rackPos);
+	starSprite.setPosition(starPos);
 }
 
 bool Level::handleCollisons(sf::Sprite playerSprite)
@@ -263,6 +277,16 @@ bool Level::handleCollisons(sf::Sprite playerSprite)
 	if (playerSprite.getGlobalBounds().intersects(RackSprite.getGlobalBounds()))
 	{
 		return true;
+	}
+	return false;
+}
+
+bool Level::handleStarCollisions(sf::Sprite playerSprite)
+{
+	if(playerSprite.getGlobalBounds().intersects(starSprite.getGlobalBounds()))
+	{ 
+		return true;
+		starPos.x = 2500;
 	}
 	return false;
 }
