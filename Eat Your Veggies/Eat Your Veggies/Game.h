@@ -69,4 +69,10 @@ private:
 	bool drawPrompt = false;
 
 	void initGame();
+
+	sf::Sound Music;
+	sf::SoundBuffer MenuMusic;
+	sf::SoundBuffer GameMusic;
+
+	bool beginGameMusic = false;
 };
