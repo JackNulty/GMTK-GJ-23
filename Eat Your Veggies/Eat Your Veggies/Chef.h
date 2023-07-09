@@ -22,14 +22,15 @@ private:
 	sf::SoundBuffer huh;
 	sf::Sound chefNoise;
 	sf::SoundBuffer whistle;
-	
+	sf::Sound shout;
+	sf::SoundBuffer angry;
 	// Chopping noise
 	sf::SoundBuffer cutting;
 	sf::Sound cuttingNoise;
 
 	bool huhPlayable = true;
 	bool whistlePlayable = true;
-
+	bool angryPlayable = true;
 public:
 
 	void init();

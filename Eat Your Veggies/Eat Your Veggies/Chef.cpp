@@ -29,7 +29,10 @@ void Chef::init()
 	{
 		std::cout << "error laoding cutting audio\n";
 	}
-	
+	if (!angry.loadFromFile("ASSETS/AUDIO/angry.ogg"))
+	{
+		std::cout << "error laoding angry audio\n";
+	}
 
 	chefNoise.setBuffer(whistle);
 	chefNoise.setVolume(70);
@@ -72,14 +75,26 @@ void Chef::update()
 			cuttingNoise.pause();
 
 		}
+		angryPlayable = true;
 	}
 	// If the timers up, turn around
+	if (turnTimer == turnThreshold-20)
+	{
+		if (angryPlayable == true)
+		{
+			angryPlayable = false;
+			shout.setBuffer(angry);
+			shout.setVolume(100);
+			shout.play();
+		}
+	}
 	if (turnTimer >= turnThreshold)
 	{
 		bandroot.setTexture(chefStaringTexture);
 		bandroot.setTextureRect(sf::IntRect(0, 0, 454, 388));
 		bandroot.setOrigin(227, 184);
 		facingPlayer = true;
+
 
 		whistlePlayable = true;
 	}
@@ -89,6 +104,7 @@ void Chef::update()
 		turnThreshold = rand() % 480;
 		bandroot.setTexture(chefUnawareTexture);
 		huhPlayable = true;
+		//angryPlayable = true;
 		bandroot.setTextureRect(sf::IntRect(0, 0, 425, 320));
 		bandroot.setOrigin(213, 160);
 		facingPlayer = false;
@@ -102,6 +118,7 @@ void Chef::update()
 
 			cuttingNoise.play();
 		}
+		angryPlayable = true;
 	}
 
 }
