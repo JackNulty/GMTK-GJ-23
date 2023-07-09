@@ -61,6 +61,12 @@ private:
 	sf::Texture tutorialControls;
 	bool gameStarted = false;
 	int cardNo = 0;
-	int spaceCooldown;
-	const int cooldownMax = 20;
+	int spaceCooldown = 120;
+	const int cooldownMax = 60;
+
+	sf::Sprite promptSprite;
+	sf::Texture spacePrompt;
+	bool drawPrompt = false;
+
+	void initGame();
 };
