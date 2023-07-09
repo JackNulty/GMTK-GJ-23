@@ -49,7 +49,7 @@ void Game::init()
 	}
 	gameWinSprite.setTexture(gameWinTexture);
 
-	if (!levelCompleteTex.loadFromFile("ASSETS/SPRITES/LevelCompletedPlaceholder.png"))
+	if (!levelCompleteTex.loadFromFile("ASSETS/SPRITES/LevelComplete.png"))
 	{
 		std::cout << "level complete screen failed to load\n";
 	}
