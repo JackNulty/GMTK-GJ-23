@@ -285,8 +285,8 @@ bool Level::handleStarCollisions(sf::Sprite playerSprite)
 {
 	if(playerSprite.getGlobalBounds().intersects(starSprite.getGlobalBounds()))
 	{ 
-		return true;
 		starPos.x = 2500;
+		return true;
 	}
 	return false;
 }
