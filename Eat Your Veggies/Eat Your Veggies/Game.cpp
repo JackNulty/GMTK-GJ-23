@@ -86,6 +86,17 @@ void Game::init()
 	promptSprite.setPosition(SCREEN_WIDTH / 2, 650);
 
 
+	if (!MenuMusic.loadFromFile("ASSETS/AUDIO/menu.ogg"))
+	{
+		std::cout << "error loading menu music\n";
+	}
+	if (!GameMusic.loadFromFile("ASSETS/AUDIO/game.ogg"))
+	{
+		std::cout << "error loading game music\n";
+	}
+	Music.setBuffer(MenuMusic);
+	Music.play();
+
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
 	rageBar.setSize(sf::Vector2f(rageBarSize,60));
 	rageBar.setPosition(60, 36);
@@ -99,6 +110,11 @@ void Game::init()
 
 void Game::initGame()
 {
+	Music.setBuffer(GameMusic);
+	Music.setVolume(70);
+	Music.setLoop(true);
+	Music.play();
+
 	myVeg.init();
 	myLevel.init();
 	myHud.init();
@@ -241,11 +257,6 @@ void Game::collision()
 	}
 	else {
 		inCover = false;
-	}
-
-	if (myLevel.handleStarCollisions(myVeg.player) == true)
-	{
-		rageMeter -= 15;
 	}
 }
 
