@@ -76,4 +76,7 @@ private:
 	sf::SoundBuffer GameMusic;
 
 	bool beginGameMusic = false;
+
+	bool stop = false;
+	int counter = 0;
 };

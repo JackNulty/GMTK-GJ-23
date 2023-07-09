@@ -54,6 +54,7 @@ void Game::init()
 		std::cout << "level complete screen failed to load\n";
 	}
 	levelCompleteSprite.setTexture(levelCompleteTex);
+	levelCompleteSprite.setScale(4, 4);
 
 	if (!splashScreen.loadFromFile("ASSETS/SPRITES/splashScreen.jpg"))
 	{
@@ -136,16 +137,21 @@ void Game::render()
 	m_window.draw(levelBar);
 	myHud.render(m_window);
 	myVeg.render(m_window);
-	if (levelCompleted == true)
+	if (levelCompleted == true && stop != true)
 	{
 		m_window.draw(levelCompleteSprite);
 		myVeg.resetPlayer();
 	}
-	if (gameOver == true)
+	if (gameOver == true && stop != true)
 	{
 		m_window.draw(gameOverSprite);
 	}
 	if (levelNo == 3 && gameOver !=true)
+	{
+		m_window.draw(gameWinSprite);
+		stop = true;
+	}
+	if (stop = true)
 	{
 		m_window.draw(gameWinSprite);
 	}

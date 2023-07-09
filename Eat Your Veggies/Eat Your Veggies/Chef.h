@@ -37,5 +37,7 @@ public:
 	void render(sf::RenderWindow& window);
 	void update();
 	bool facingPlayer = false;
+
+	bool stop = false;
 };
 
