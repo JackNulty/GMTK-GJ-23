@@ -76,6 +76,10 @@ void Game::init()
 	{
 		std::cout << "tutorial controls screen failed to load\n";
 	}
+	if (!tutorialStars.loadFromFile("ASSETS/SPRITES/tutorialImageStars.png"))
+	{
+		std::cout << "tutorial stars screen failed to load\n";
+	}
 	if (!spacePrompt.loadFromFile("ASSETS/SPRITES/continue.png"))
 	{
 		std::cout << "error loading prompt\n";
@@ -187,9 +191,13 @@ void Game::update()
 		}
 		if (cardNo == 4)
 		{
-			introCards.setTexture(tutorialControls);
+			introCards.setTexture(tutorialStars);
 		}
 		if (cardNo == 5)
+		{
+			introCards.setTexture(tutorialControls);
+		}
+		if (cardNo == 6)
 		{
 			introCards.setPosition(-1000, -1000);
 			gameStarted = true;
@@ -257,11 +265,6 @@ void Game::collision()
 	}
 	else {
 		inCover = false;
-	}
-
-	if (myLevel.handleStarCollisions(myVeg.player) == true)
-	{
-		rageMeter -= 15;
 	}
 }
 

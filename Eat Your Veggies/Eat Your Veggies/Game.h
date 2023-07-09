@@ -59,6 +59,7 @@ private:
 	sf::Texture tutorialLevel;
 	sf::Texture tutorialRage;
 	sf::Texture tutorialControls;
+	sf::Texture tutorialStars;
 	bool gameStarted = false;
 	int cardNo = 0;
 	int spaceCooldown = 120;
