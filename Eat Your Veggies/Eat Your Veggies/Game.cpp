@@ -55,7 +55,7 @@ void Game::init()
 	}
 	levelCompleteSprite.setTexture(levelCompleteTex);
 
-	if (!splashScreen.loadFromFile("ASSETS/SPRITES/splashScreen.png"))
+	if (!splashScreen.loadFromFile("ASSETS/SPRITES/splashScreen.jpg"))
 	{
 		std::cout << "Splash screen failed to load\n";
 	}
