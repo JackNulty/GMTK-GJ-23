@@ -50,6 +50,8 @@ private:
 	sf::Sprite starSprite;
 	sf::Texture starTexture;
 	bool starAvailable = true;
+	sf::Sound starCollectSound;
+	sf::SoundBuffer starCollectBuffer;
 
 	sf::Vector2f saltPos = sf::Vector2f(-500, 335);
 	sf::Vector2f pepperPos = sf::Vector2f(-500, 335);

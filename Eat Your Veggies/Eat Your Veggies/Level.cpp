@@ -71,6 +71,11 @@ void Level::init()
 	starSprite.setTexture(starTexture);
 	starSprite.setPosition(starPos);
 	starSprite.setScale(5, 5);
+	if (!starCollectBuffer.loadFromFile("ASSETS/AUDIO/star_sound.ogg"))
+	{
+		std::cout << "error loading star sound" << std::endl;
+	}
+	starCollectSound.setBuffer(starCollectBuffer);
 }
 
 void Level::update()
@@ -286,6 +291,7 @@ bool Level::handleStarCollisions(sf::Sprite playerSprite)
 	if(playerSprite.getGlobalBounds().intersects(starSprite.getGlobalBounds()))
 	{ 
 		starPos.x = 2500;
+		starCollectSound.play();
 		return true;
 	}
 	return false;
