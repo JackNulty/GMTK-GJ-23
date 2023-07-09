@@ -32,6 +32,7 @@ void Chef::init()
 	
 
 	chefNoise.setBuffer(whistle);
+	chefNoise.setVolume(70);
 	chefNoise.play();
 
 	cuttingNoise.setBuffer(cutting);
@@ -65,6 +66,7 @@ void Chef::update()
 		{
 			huhPlayable = false;
 			chefNoise.setBuffer(huh);
+			chefNoise.setVolume(100);
 			chefNoise.play();
 
 			cuttingNoise.pause();
@@ -95,6 +97,7 @@ void Chef::update()
 		{
 			whistlePlayable = false;
 			chefNoise.setBuffer(whistle);
+			chefNoise.setVolume(70);
 			chefNoise.play();
 
 			cuttingNoise.play();

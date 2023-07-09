@@ -37,7 +37,7 @@ void Game::init()
 	}
 	background.setTexture(backgroundTexture);
 	background.setScale(0.8, 0.6);
-	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/lose.jpg"))
+	if (!gameOverTexture.loadFromFile("ASSETS/SPRITES/lose.png"))
 	{
 		std::cout << "error\n" << std::endl;
 	}
@@ -99,6 +99,7 @@ void Game::init()
 		std::cout << "error loading game music\n";
 	}
 	Music.setBuffer(MenuMusic);
+	Music.setVolume(1);
 	Music.play();
 
 	rageBar.setFillColor(sf::Color(sf::Color::Red));
@@ -115,7 +116,7 @@ void Game::init()
 void Game::initGame()
 {
 	Music.setBuffer(GameMusic);
-	Music.setVolume(70);
+	Music.setVolume(1);
 	Music.setLoop(true);
 	Music.play();
 
@@ -159,6 +160,19 @@ void Game::render()
 
 void Game::update()
 {
+	if (gameOver == true)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+		{
+			gameOver = false;
+			myVeg.resetPlayer();
+			rageMeter = 0;
+			levelDistance = 0;
+
+			initGame();
+		}
+	}
+
 	if (gameStarted == false)
 	{
 		spaceCooldown--;
@@ -207,6 +221,7 @@ void Game::update()
 	}
 	if (gameStarted == true)
 	{
+		myLevel.handleStarCollisions(myVeg.player);
 		myVeg.update();
 		myLevel.update();
 		if (gameOver == false || levelNo != 3)

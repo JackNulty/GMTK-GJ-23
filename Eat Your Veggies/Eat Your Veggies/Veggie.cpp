@@ -22,14 +22,15 @@ void Veggie::movement()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		if (playerPos.x <= 0)
-		{
-			playerPos.x = 0;
-		}
-		else
-		{
-			playerPos.x -= speed;
-		}
+		playerPos.x -= speed;
+		//if (playerPos.x <= 0)
+		//{
+		//	playerPos.x = 0;
+		//}
+		//else
+		//{
+		//	playerPos.x -= speed;
+		//}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
