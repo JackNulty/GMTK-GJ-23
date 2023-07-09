@@ -35,6 +35,8 @@ public:
 	float rageMeter = 0;
 	int rageBarSize = 0;
 
+	int levelPopupCounter = 240;
+
 	float levelDistance = 0;
 	int levelBarSize = 0;
 

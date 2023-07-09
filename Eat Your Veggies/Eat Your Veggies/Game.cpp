@@ -112,6 +112,19 @@ void Game::update()
 	if (levelDistance >= 280)
 	{
 		gameWin = true;
+		levelPopupCounter--;
+		if (levelPopupCounter >= 0)
+		{
+			std::cout << "well done level passed" << std::endl;
+		}
+		if (levelPopupCounter <= 0)
+		{
+			levelDistance = 0;
+			rageMeter = 0;
+			levelPopupCounter = 240;
+			gameWin = false;
+		}
+		
 		increaseGameSpeed();
 	}
 	rageBarSize = rageMeter;
