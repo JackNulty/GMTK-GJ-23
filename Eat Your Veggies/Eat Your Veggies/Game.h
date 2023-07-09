@@ -52,5 +52,15 @@ private:
 	sf::Sprite levelCompleteSprite;
 	sf::Texture levelCompleteTex;
 	bool levelCompleted;
-	
+
+	sf::Sprite introCards;
+	sf::Texture splashScreen;
+	sf::Texture tutorialHide;
+	sf::Texture tutorialLevel;
+	sf::Texture tutorialRage;
+	sf::Texture tutorialControls;
+	bool gameStarted = false;
+	int cardNo = 0;
+	int spaceCooldown;
+	const int cooldownMax = 20;
 };

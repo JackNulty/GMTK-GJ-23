@@ -32,10 +32,10 @@ void Chef::init()
 	
 
 	chefNoise.setBuffer(whistle);
-	chefNoise.play();
+	//chefNoise.play();
 
 	cuttingNoise.setBuffer(cutting);
-	cuttingNoise.play();
+	//cuttingNoise.play();
 
 	bandroot.setTexture(chefUnawareTexture);
 	bandroot.setOrigin(213, 160);
